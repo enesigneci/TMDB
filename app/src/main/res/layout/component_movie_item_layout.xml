@@ -7,38 +7,53 @@
 
     <ImageView
         android:id="@+id/iv_movie_poster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/tv_title"
+        app:layout_constraintDimensionRatio="9:16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@drawable/poster_placeholder" />
 
     <TextView
         android:id="@+id/tv_vote_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#700090FF"
+        android:padding="20dp"
+        android:textColor="@color/white"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:maxLines="1"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/tv_release_date"
+        app:layout_constraintBottom_toTopOf="@+id/tv_release_date"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster" />
 
     <TextView
         android:id="@+id/tv_release_date"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/iv_movie_poster" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

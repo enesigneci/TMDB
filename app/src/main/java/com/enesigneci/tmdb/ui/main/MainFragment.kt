@@ -35,6 +35,7 @@ class MainFragment : Fragment() {
                 }
             }
             rvSearchResults.adapter = searchAdapter
+            rvSearchResults.setHasFixedSize(true);//This line
             rvSearchResults.layoutManager = GridLayoutManager(context, 2)
         }
 

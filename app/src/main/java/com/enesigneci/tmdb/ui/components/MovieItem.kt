@@ -12,6 +12,7 @@ import androidx.annotation.AttrRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.enesigneci.tmdb.R
 import com.enesigneci.tmdb.databinding.ComponentMovieItemLayoutBinding
+import com.enesigneci.tmdb.extensions.loadImageFromUrl
 
 
 class MovieItem @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr: Int = 0) : ConstraintLayout(context, attrs, defStyleAttr) {
@@ -27,6 +28,7 @@ class MovieItem @JvmOverloads constructor(context: Context, attrs: AttributeSet?
         get() = _imageUrl
         set(value) {
             _imageUrl = value
+            value?.let { binding.ivMoviePoster.loadImageFromUrl(it) }
             invalidate()
         }
 

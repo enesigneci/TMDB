@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.enesigneci.tmdb.databinding.SearchItemLayoutBinding
+import com.enesigneci.tmdb.extensions.toReleaseDate
 import com.enesigneci.tmdb.network.model.SearchResponse
 
 class SearchAdapter: RecyclerView.Adapter<SearchAdapter.SearchItemViewHolder>() {
@@ -23,8 +24,8 @@ class SearchAdapter: RecyclerView.Adapter<SearchAdapter.SearchItemViewHolder>() 
 
     inner class SearchItemViewHolder(private val itemBinding: SearchItemLayoutBinding): RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(result: SearchResponse.Result) {
-            itemBinding.movieItem.imageUrl = result.posterPath.toString()
-            itemBinding.movieItem.releaseDate = result.releaseDate
+            itemBinding.movieItem.imageUrl = "https://image.tmdb.org/t/p/original/${result.posterPath.toString()}"
+            itemBinding.movieItem.releaseDate = result.releaseDate?.toReleaseDate()
             itemBinding.movieItem.title = result.title
             itemBinding.movieItem.voteAverage = result.voteAverage?.toFloat()
         }
