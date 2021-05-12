@@ -14,8 +14,8 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val service: TMDBService) : ViewModel() {
     var searchLiveData = MutableLiveData<SearchResponse>()
     var errorLiveData = MutableLiveData<Throwable>()
-    fun searchInTMDB(searchTerm: String) {
-        service.searchInAPI(searchTerm = searchTerm).enqueue(object: Callback<SearchResponse>{
+    fun searchInTMDB(searchTerm: String, page: Int = 1) {
+        service.searchInAPI(searchTerm = searchTerm, page = page).enqueue(object: Callback<SearchResponse>{
             override fun onResponse(
                 call: Call<SearchResponse>,
                 response: Response<SearchResponse>
