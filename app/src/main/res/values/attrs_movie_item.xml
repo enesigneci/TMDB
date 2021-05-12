@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="MovieItem">
+        <attr name="imageUrl" format="string" />
+        <attr name="voteAverage" format="float" />
+        <attr name="title" format="string" />
+        <attr name="releaseDate" format="string" />
+    </declare-styleable>
+</resources>
