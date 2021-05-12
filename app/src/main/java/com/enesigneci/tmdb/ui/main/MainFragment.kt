@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.enesigneci.tmdb.databinding.MainFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,6 +18,7 @@ class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: MainFragmentBinding
+    private var searchAdapter = SearchAdapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -32,10 +34,12 @@ class MainFragment : Fragment() {
                     viewModel.searchInTMDB(it.toString())
                 }
             }
+            rvSearchResults.adapter = searchAdapter
+            rvSearchResults.layoutManager = GridLayoutManager(context, 2)
         }
 
         viewModel.searchLiveData.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, it.results?.get(0)?.originalTitle, Toast.LENGTH_SHORT).show()
+            searchAdapter.setSearchResponse(it)
         })
         viewModel.errorLiveData.observe(viewLifecycleOwner, Observer {
             Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
