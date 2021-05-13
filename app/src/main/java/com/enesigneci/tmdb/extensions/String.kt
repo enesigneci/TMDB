@@ -16,3 +16,7 @@ fun String.toReleaseDate(): String{
         return this
     }
 }
+
+fun String.toImageUrl(): String {
+    return "https://image.tmdb.org/t/p/original/".plus(this)
+}

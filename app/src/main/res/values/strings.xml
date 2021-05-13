@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TMDB</string>
+    <string name="info_text">TheMovieDB API is used in this project to fetch datas</string>
+    <string name="crew">CREW</string>
+    <string name="cast">CAST</string>
 </resources>

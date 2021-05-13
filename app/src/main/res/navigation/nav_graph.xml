@@ -15,4 +15,20 @@
         android:name="com.enesigneci.tmdb.ui.info.InfoFragment"
         android:label="info_fragment"
         tools:layout="@layout/info_fragment" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.enesigneci.tmdb.ui.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment">
+
+        <argument
+            android:name="movieId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_to_detailFragment"
+        app:destination="@id/detailFragment"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim" />
 </navigation>

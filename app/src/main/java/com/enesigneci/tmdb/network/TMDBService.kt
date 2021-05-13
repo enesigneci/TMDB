@@ -1,5 +1,6 @@
 package com.enesigneci.tmdb.network
 
+import com.enesigneci.tmdb.network.model.MovieCreditsResponse
 import com.enesigneci.tmdb.network.model.MovieDetailResponse
 import com.enesigneci.tmdb.network.model.SearchResponse
 import retrofit2.Call
@@ -12,5 +13,8 @@ interface TMDBService {
     fun searchInAPI(@Query("api_key") apiKey: String = "6fe1e307f82cb96da47b28c679473a2d", @Query("query") searchTerm: String, @Query("page") page: Int = 1): Call<SearchResponse>
 
     @GET("/3/movie/{movie_id}")
-    fun getMovieDetails(@Query("api_key") apiKey: String = "6fe1e307f82cb96da47b28c679473a2d", @Path("movie_id") movieId: Int): Call<MovieDetailResponse>
+    fun getMovieDetails(@Path("movie_id") movieId: Int, @Query("api_key") apiKey: String = "6fe1e307f82cb96da47b28c679473a2d"): Call<MovieDetailResponse>
+
+    @GET("/3/movie/{movie_id}/credits")
+    fun getMovieCredits(@Path("movie_id") movieId: Int, @Query("api_key") apiKey: String = "6fe1e307f82cb96da47b28c679473a2d"): Call<MovieCreditsResponse>
 }
